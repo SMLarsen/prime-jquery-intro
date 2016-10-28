@@ -3,16 +3,10 @@ $(document).ready(function() {
     $('#employeeinfo').on('submit', function(event) {
       event.preventDefault();
 
-      // initialize a new variable as an empty object
       var values = {};
-
-      // convert the form inputs into an array
       var fields = $('#employeeinfo').serializeArray();
 
-      // iterate over the array and transfer each index into a new property on an object with the value of what was entered.
       fields.forEach(function(element, index, array) {
-        // review index notation vs. dot notation on objects
-        // here, dot notation wouldn't work
         values[element.name] = element.value;
       });
 
@@ -29,7 +23,12 @@ $(document).ready(function() {
       $('#container').append('<div class="person"></div>');
       var $el = $('#container').children().last();
 
-      $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + '</p>');
+      $el.append('<p>' + empInfo.employeefirstname +
+      ' ' + empInfo.employeelastname +
+      ' ' + empInfo.employeeID + 
+      ' ' + empInfo.employeeTitle +
+      ' ' + empInfo.employeeSalary +
+      '</p>');
     }
 
 

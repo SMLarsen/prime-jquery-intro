@@ -3,16 +3,25 @@ h1 {
 }
 
 #container {
-  border: 1px solid blue;
   padding: 10px;
   margin: 30px;
 }
 
 .person {
-  border: 2px solid black;
+  border-color: red;
   padding: 2px;
 }
 
 .clicked {
   border-color: red;
+}
+
+table {
+  width: 80%;
+  margin: auto;
+  border: 1px solid darkslategrey;
+}
+
+tr {
+  border-color: green;
 }

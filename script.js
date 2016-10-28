@@ -19,17 +19,16 @@ $(document).ready(function() {
       appendDom(values);
     });
 
+    console.log($("#employeeTab").children());
     function appendDom(empInfo) {
-      $('#container').append('<div class="person"></div>');
-      var $el = $('#container').children().last();
-
-      $el.append('<p>' + empInfo.employeefirstname +
-      ' ' + empInfo.employeelastname +
-      ' ' + empInfo.employeeID + 
-      ' ' + empInfo.employeeTitle +
-      ' ' + empInfo.employeeSalary +
-      '</p>');
+      $('#employeeTab').append('<tr class="employee"></tr>');
+      var $el = $('#employeeTab').children().last();
+      console.log($el);
+      $el.append('<td>' + empInfo.employeefirstname + "</td>");
+      $el.append('<td>' + empInfo.employeelastname + "</td>");
+      $el.append('<td>' + empInfo.employeeID + "</td>");
+      $el.append('<td>' + empInfo.employeeTitle + "</td>");
+      $el.append('<td>' + empInfo.employeeSalary + "</td>");
     }
-
 
 });

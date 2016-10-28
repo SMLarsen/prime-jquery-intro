@@ -23,12 +23,12 @@ $(document).ready(function() {
     function appendDom(empInfo) {
       $('#employeeTab').append('<tr class="employee"></tr>');
       var $el = $('#employeeTab').children().last();
-      console.log($el);
       $el.append('<td>' + empInfo.employeefirstname + "</td>");
       $el.append('<td>' + empInfo.employeelastname + "</td>");
       $el.append('<td>' + empInfo.employeeID + "</td>");
       $el.append('<td>' + empInfo.employeeTitle + "</td>");
       $el.append('<td>' + empInfo.employeeSalary + "</td>");
+      $el.append('<td class="deleteBtn">' + '<input type="checkbox" name="delete" value="delete">' + "</td>");
     }
 
 });

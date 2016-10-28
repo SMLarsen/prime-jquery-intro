@@ -1,5 +1,6 @@
 h1 {
-  color: teal;
+  color: slategrey;
+  text-align: center;
 }
 
 #container {
@@ -17,11 +18,23 @@ h1 {
 }
 
 table {
-  width: 80%;
+  width: 95%;
   margin: auto;
   border: 1px solid darkslategrey;
 }
 
 tr {
   border-color: green;
+}
+
+section {
+  width: 80%;
+  margin: 2% auto;
+  border: 1px solid darkslategrey;
+  padding: 10px;
+}
+
+.deleteBtn {
+  text-align: center;
+  vertical-align: middle;
 }

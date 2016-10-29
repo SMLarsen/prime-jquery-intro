@@ -4,8 +4,6 @@ $(document).ready(function () {
     $('#employeeinfo').on('submit', function (event) {
       event.preventDefault();
 
-      console.log($('#employeeinfo').find('#subBtn'));
-
       var values = {};
       var fields = $('#employeeinfo').serializeArray();
 
@@ -15,6 +13,15 @@ $(document).ready(function () {
 
       // clear out inputs
       $('#employeeinfo').find('input[type=text]').val('');
+      $('#employeeinfo').find('input[type=number]').val('');
+
+      // update total salary
+      updateTotalPayroll(values.employeeSalary);
+      function updateTotalPayroll(salary) {
+        var totPayroll = parseInt($('#totalPayroll').text());
+        totPayroll += parseInt(salary);
+        $('#totalPayroll').text(totPayroll);
+      }
 
       // append to DOM
       appendDom(values);
@@ -34,18 +41,12 @@ $(document).ready(function () {
     }
 
     // Generation of employee input
-    $('#employeeinfo').on('click', function (event) {
+    $('#employeeinfo').find('#genBtn').on('click', function (event) {
       event.preventDefault();
 
       var genEmp = genEmployee();
 
       var fields = $('#employeeinfo').serializeArray();
-
-      // fields.forEach(function (element, index, array) {
-      //   values[element.name] = element.value;
-      // });
-
-      console.log(genEmp);
 
       // put generated employee into input fields
       $('#employeeinfo').find('#employeefirstname').val(genEmp.firstName);

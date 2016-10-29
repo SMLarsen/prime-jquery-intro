@@ -51,7 +51,7 @@ function genLastName() {
 }
 
 function genSalary() {
-  return genRandomIndex(500, 2500) * 100;
+  return genRandomIndex(500, 1500) * 100;
 }
 
 function genEmpNum() {

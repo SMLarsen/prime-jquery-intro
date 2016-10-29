@@ -1,37 +1,50 @@
+body {
+  font-family: sans-serif;
+}
+
 h1 {
-  color: slategrey;
+  color: #076082;
   text-align: center;
-}
-
-#container {
-  padding: 10px;
-  margin: 30px;
-}
-
-.person {
-  border-color: red;
-  padding: 2px;
-}
-
-.clicked {
-  border-color: red;
 }
 
 table {
   width: 95%;
   margin: auto;
-  border: 1px solid darkslategrey;
+  background-color: white;
 }
 
-tr {
-  border-color: green;
+form {
+  font-size: 1.15em;
+}
+
+label{
+    display: inline-block;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+  font-size: 1em;
+  margin: 5px 5px 5px 10px;
+}
+
+.inputBtns {
+  margin-left: 50%;
+}
+
+.inputBtns input {
+  margin: 5px;
+  width: 30%;
+  color: white;
+  background-color: #076082;
 }
 
 section {
-  width: 80%;
+  width: 96%;
   margin: 2% auto;
-  border: 1px solid darkslategrey;
   padding: 10px;
+  background-color: #B3B9B0;
 }
 
 .deleteTD {
@@ -41,4 +54,12 @@ section {
 
 .salaryTD {
   text-align: right;
+}
+
+tr:nth-child(even) {
+  background-color: #B3B9B0;
+}
+
+table th {
+    border-bottom: solid #076082;
 }

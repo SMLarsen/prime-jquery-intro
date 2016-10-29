@@ -1,4 +1,10 @@
+var localeOpts = {
+  style: "currency",
+  currency: "USD"
+};
+
 $(document).ready(function () {
+
     var array = [];
     // submission of employee input
     $('#employeeinfo').on('submit', function (event) {
@@ -15,26 +21,21 @@ $(document).ready(function () {
       $('#employeeinfo').find('input[type=text]').val('');
       $('#employeeinfo').find('input[type=number]').val('');
 
-      // update total salary
-      updateTotalPayroll(values.employeeSalary);
-      function updateTotalPayroll(salary) {
-        var totPayroll = parseInt($('#totalPayroll').text());
-        totPayroll += parseInt(salary);
-        $('#totalPayroll').text(totPayroll);
-      }
+      // set total salary
+      setTotalPayroll(values.employeeSalary);
 
       // append to DOM
       appendDom(values);
-      // console.log($('#employeeTab').children().find('tr').children().last());
     });
 
     function appendDom(empInfo) {
+
       var empRow = '<tr class="employee">';
       empRow += '<td>' + empInfo.employeefirstname + '</td>';
       empRow += '<td>' + empInfo.employeelastname + '</td>';
       empRow += '<td>' + empInfo.employeeID + '</td>';
       empRow += '<td>' + empInfo.employeeTitle + '</td>';
-      empRow += '<td class="salaryTD">' + empInfo.employeeSalary + '</td>';
+      empRow += '<td class="salaryTD">' + parseInt(empInfo.employeeSalary).toLocaleString("en-US", localeOpts) + '</td>';
       empRow += '<td class="deleteTD"><input type="checkbox" class="delBox" value="' + empInfo.employeeSalary + '" name="delBox" /></td>';
       empRow += '</tr>';
       $('#employeeTab').append(empRow);
@@ -60,15 +61,25 @@ $(document).ready(function () {
     $('#employeeTab').on('click', '.delBtn', function (event) {
       event.preventDefault();
 
-      var totPayroll = parseInt($('#totalPayroll').text());
-      console.log(totPayroll);
-
+      var totPayroll = getTotalPayroll();
       $('.delBox:checked').each(function(i){
         totPayroll -= parseInt($(this).val());
       });
+      totPayroll = totPayroll.toLocaleString("en-US", localeOpts);
       $('#totalPayroll').text(totPayroll);
 
       $('.delBox:checked').parent().parent().remove();
     });
 
   });
+
+  function getTotalPayroll() {
+    var totPayroll = $('#totalPayroll').text();
+    return Number(totPayroll.replace(/[^0-9\.]+/g,""));
+  }
+
+  function setTotalPayroll(salary) {
+    var totPayroll = getTotalPayroll();
+    totPayroll += parseInt(salary);
+    $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
+  }

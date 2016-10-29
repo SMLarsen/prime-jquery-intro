@@ -38,3 +38,7 @@ section {
   text-align: center;
   vertical-align: middle;
 }
+
+.salaryTD {
+  text-align: right;
+}

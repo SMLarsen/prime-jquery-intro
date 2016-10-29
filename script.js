@@ -25,6 +25,7 @@ $(document).ready(function () {
 
       // append to DOM
       appendDom(values);
+      // console.log($('#employeeTab').children().find('tr').children().last());
     });
 
     function appendDom(empInfo) {
@@ -33,11 +34,8 @@ $(document).ready(function () {
       empRow += '<td>' + empInfo.employeelastname + '</td>';
       empRow += '<td>' + empInfo.employeeID + '</td>';
       empRow += '<td>' + empInfo.employeeTitle + '</td>';
-      empRow += '<td>' + empInfo.employeeSalary + '</td>';
-      empRow += '<td class="deleteBox">' +
-        '<input type="checkbox" name="deleteBox"' +
-        ' value="deleteBox" id="deleteBox">' +
-        '</td>';
+      empRow += '<td class="salaryTD">' + empInfo.employeeSalary + '</td>';
+      empRow += '<td class="deleteTD"><input type="checkbox" class="delBox" value="' + empInfo.employeeSalary + '" name="delBox" /></td>';
       empRow += '</tr>';
       $('#employeeTab').append(empRow);
     }
@@ -59,15 +57,18 @@ $(document).ready(function () {
     });
 
     // Deletion of employees
-    $('#employeeTab').find('#delBtn').on('click', function (event) {
+    $('#employeeTab').on('click', '.delBtn', function (event) {
       event.preventDefault();
 
-      console.log($('#employeeTab').find('#deleteBox', ':checked').parent());
-      console.log($('#employeeTab').find('#employee').parent());
+      var totPayroll = parseInt($('#totalPayroll').text());
+      console.log(totPayroll);
 
-      // $('#employeeTab').find('#deleteBox', ':checked').parent().css('background-color: red;')
-// console.log($('.employee').find('#deleteBox').parent().siblings().last().val());
-      // $('#employeeinfo').find('deleteBox').checked.remove();
+      $('.delBox:checked').each(function(i){
+        totPayroll -= parseInt($(this).val());
+      });
+      $('#totalPayroll').text(totPayroll);
+
+      $('.delBox:checked').parent().parent().remove();
     });
 
   });

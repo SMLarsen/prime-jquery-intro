@@ -28,16 +28,18 @@ $(document).ready(function () {
     });
 
     function appendDom(empInfo) {
-      $('#employeeTab').append('<tr class="employee"></tr>');
-      var $el = $('#employeeTab').children().last();
-      $el.append('<td>' + empInfo.employeefirstname + '</td>');
-      $el.append('<td>' + empInfo.employeelastname + '</td>');
-      $el.append('<td>' + empInfo.employeeID + '</td>');
-      $el.append('<td>' + empInfo.employeeTitle + '</td>');
-      $el.append('<td>' + empInfo.employeeSalary + '</td>');
-      $el.append('<td class="deleteBtn">' +
-        '<input type="checkbox" name="delete" value="delete">' +
-        '</td>');
+      var empRow = '<tr class="employee">';
+      empRow += '<td>' + empInfo.employeefirstname + '</td>';
+      empRow += '<td>' + empInfo.employeelastname + '</td>';
+      empRow += '<td>' + empInfo.employeeID + '</td>';
+      empRow += '<td>' + empInfo.employeeTitle + '</td>';
+      empRow += '<td>' + empInfo.employeeSalary + '</td>';
+      empRow += '<td class="deleteBox">' +
+        '<input type="checkbox" name="deleteBox"' +
+        ' value="deleteBox" id="deleteBox">' +
+        '</td>';
+      empRow += '</tr>';
+      $('#employeeTab').append(empRow);
     }
 
     // Generation of employee input
@@ -54,6 +56,18 @@ $(document).ready(function () {
       $('#employeeinfo').find('#employeeID').val(genEmp.empNum);
       $('#employeeinfo').find('#employeeTitle').val(genEmp.title);
       $('#employeeinfo').find('#employeeSalary').val(genEmp.salary);
+    });
+
+    // Deletion of employees
+    $('#employeeTab').find('#delBtn').on('click', function (event) {
+      event.preventDefault();
+
+      console.log($('#employeeTab').find('#deleteBox', ':checked').parent());
+      console.log($('#employeeTab').find('#employee').parent());
+
+      // $('#employeeTab').find('#deleteBox', ':checked').parent().css('background-color: red;')
+// console.log($('.employee').find('#deleteBox').parent().siblings().last().val());
+      // $('#employeeinfo').find('deleteBox').checked.remove();
     });
 
   });

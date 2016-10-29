@@ -1,7 +1,10 @@
 $(document).ready(function () {
     var array = [];
+    // submission of employee input
     $('#employeeinfo').on('submit', function (event) {
       event.preventDefault();
+
+      console.log($('#employeeinfo').find('#subBtn'));
 
       var values = {};
       var fields = $('#employeeinfo').serializeArray();
@@ -10,8 +13,6 @@ $(document).ready(function () {
         values[element.name] = element.value;
       });
 
-      console.log(values);
-
       // clear out inputs
       $('#employeeinfo').find('input[type=text]').val('');
 
@@ -19,7 +20,6 @@ $(document).ready(function () {
       appendDom(values);
     });
 
-    console.log($('#employeeTab').children());
     function appendDom(empInfo) {
       $('#employeeTab').append('<tr class="employee"></tr>');
       var $el = $('#employeeTab').children().last();
@@ -32,5 +32,27 @@ $(document).ready(function () {
         '<input type="checkbox" name="delete" value="delete">' +
         '</td>');
     }
+
+    // Generation of employee input
+    $('#employeeinfo').on('click', function (event) {
+      event.preventDefault();
+
+      var genEmp = genEmployee();
+
+      var fields = $('#employeeinfo').serializeArray();
+
+      // fields.forEach(function (element, index, array) {
+      //   values[element.name] = element.value;
+      // });
+
+      console.log(genEmp);
+
+      // put generated employee into input fields
+      $('#employeeinfo').find('#employeefirstname').val(genEmp.firstName);
+      $('#employeeinfo').find('#employeelastname').val(genEmp.lastName);
+      $('#employeeinfo').find('#employeeID').val(genEmp.empNum);
+      $('#employeeinfo').find('#employeeTitle').val(genEmp.title);
+      $('#employeeinfo').find('#employeeSalary').val(genEmp.salary);
+    });
 
   });

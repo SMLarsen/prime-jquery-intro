@@ -94,5 +94,3 @@ function genTitle() {
   'Webmaster'];
   return jobTitles[genRandomIndex(1, jobTitles.length)];
 }
-
-console.log(genEmployee());

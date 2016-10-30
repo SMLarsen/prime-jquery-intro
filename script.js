@@ -31,10 +31,10 @@ $(document).ready(function () {
     function appendDom(empInfo) {
 
       var empRow = '<tr class="employee">';
-      empRow += '<td>' + empInfo.employeefirstname + '</td>';
-      empRow += '<td>' + empInfo.employeelastname + '</td>';
-      empRow += '<td>' + empInfo.employeeID + '</td>';
-      empRow += '<td>' + empInfo.employeeTitle + '</td>';
+      empRow += '<td class="nameTD">' + empInfo.employeefirstname + '</td>';
+      empRow += '<td class="nameTD">' + empInfo.employeelastname + '</td>';
+      empRow += '<td class="empIDTD"> ' + empInfo.employeeID + '</td>';
+      empRow += '<td class="titleTD">' + empInfo.employeeTitle + '</td>';
       empRow += '<td class="salaryTD">' + parseInt(empInfo.employeeSalary).toLocaleString("en-US", localeOpts) + '</td>';
       empRow += '<td class="deleteTD"><input type="checkbox" class="delBox" value="' + empInfo.employeeSalary + '" name="delBox" /></td>';
       empRow += '</tr>';
@@ -46,12 +46,11 @@ $(document).ready(function () {
       event.preventDefault();
 
       var genEmp = genEmployee();
-
       var fields = $('#employeeinfo').serializeArray();
 
       // put generated employee into input fields
-      $('#employeeinfo').find('#employeefirstname').val(genEmp.firstName);
-      $('#employeeinfo').find('#employeelastname').val(genEmp.lastName);
+      $('#employeeinfo').find('#employeeFirstName').val(genEmp.firstName);
+      $('#employeeinfo').find('#employeeLastName').val(genEmp.lastName);
       $('#employeeinfo').find('#employeeID').val(genEmp.empNum);
       $('#employeeinfo').find('#employeeTitle').val(genEmp.title);
       $('#employeeinfo').find('#employeeSalary').val(genEmp.salary);

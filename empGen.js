@@ -62,7 +62,7 @@ function genEmpNum() {
 function genTitle() {
   var jobTitles = ['Application Developer', 'Application Support Analyst',
   'Applications Engineer', 'Associate Developer',
-  'Chief Technology Officer (CTO) ', 'Chief Information Officer (CIO) ',
+  'Chief Technology Officer (CTO)', 'Chief Information Officer (CIO)',
   'Computer and Information Systems Manager', 'Computer Systems Manager',
   'Customer Support Administrator', 'Customer Support Specialist',
   'Data Center Support Specialist', 'Data Quality Manager',

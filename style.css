@@ -1,10 +1,10 @@
 body {
   font-family: sans-serif;
+  color: #076082;
 }
 
-h1 {
-  color: #076082;
-  text-align: center;
+h1, h2 {
+  margin: 10px 0 10px 5%;
 }
 
 table {
@@ -14,46 +14,91 @@ table {
 }
 
 form {
-  font-size: 1.15em;
+  font-size: 1em;
 }
 
 label{
     display: inline-block;
     clear: left;
-    width: 250px;
+    width: 150px;
     text-align: right;
 }
 input {
   display: inline-block;
+  width: 220px;
   font-size: 1em;
   margin: 5px 5px 5px 10px;
 }
 
+#employeeFirstName, #employeeLastName {
+  width: 250px;
+}
+
+#employeeTitle {
+  width: 300px;
+}
+
+#employeeID {
+  text-align: center;
+  width: 70px;
+}
+
+#employeeSalary {
+  text-align: right;
+  width: 70px;
+}
 .inputBtns {
-  margin-left: 50%;
+  margin-left: 63%;
 }
 
 .inputBtns input {
   margin: 5px;
-  width: 30%;
+  width: 200px;
   color: white;
   background-color: #076082;
 }
 
+.inputBtns input:hover {
+  right: 5px;
+  margin: 5px;
+  width: 200px;
+  color: white;
+  background-color: #0f86b3;
+  box-shadow: 4px 4px 2px grey;
+}
+
+.delBtn {
+  width: 100px;
+  color: white;
+  background-color: #076082;
+}
+
+.delBtn:hover {
+  width: 100px;
+  color: white;
+  background-color: #0f86b3;
+  box-shadow: 4px 4px 2px grey;
+}
+
+#totalPayroll {
+  display: inline-block;
+  text-align: right;
+  padding: 5px;
+  background-color: white;
+  width: 160px;
+  font-size: 1em;
+  margin: 5px 5px 5px 10px;
+}
+
 section {
   width: 96%;
-  margin: 2% auto;
-  padding: 10px;
+  margin: 5px auto;
+  padding: 5px;
   background-color: #B3B9B0;
 }
 
-.deleteTD {
+ tr th #deleteTD {
   text-align: center;
-  vertical-align: middle;
-}
-
-.salaryTD {
-  text-align: right;
 }
 
 tr:nth-child(even) {
@@ -62,4 +107,30 @@ tr:nth-child(even) {
 
 table th {
     border-bottom: solid #076082;
+}
+
+.nameTD {
+  width: 15%;
+  padding-left: 1%;
+}
+
+.empIDTD {
+  text-align: center;
+  width: 10%;
+}
+
+.titleTD {
+  padding-left: 1%;
+  width: 40%;
+}
+
+.deleteTD {
+  width: 50px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.salaryTD {
+  width: 8%;
+  text-align: right;
 }

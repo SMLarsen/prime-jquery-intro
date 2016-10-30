@@ -36,7 +36,7 @@ $(document).ready(function () {
       empRow += '<td class="empIDTD"> ' + empInfo.employeeID + '</td>';
       empRow += '<td class="titleTD">' + empInfo.employeeTitle + '</td>';
       empRow += '<td class="salaryTD">' + parseInt(empInfo.employeeSalary).toLocaleString("en-US", localeOpts) + '</td>';
-      empRow += '<td class="deleteTD"><input type="checkbox" class="delBox" value="' + empInfo.employeeSalary + '" name="delBox" /></td>';
+      empRow += '<td class="deleteTD"><input type="checkbox" class="deleteBox" value="' + empInfo.employeeSalary + '" name="deleteBox" /></td>';
       empRow += '</tr>';
       $('#employeeTab').append(empRow);
     }
@@ -61,13 +61,13 @@ $(document).ready(function () {
       event.preventDefault();
 
       var totPayroll = getTotalPayroll();
-      $('.delBox:checked').each(function(i){
+      $('.deleteBox:checked').each(function(i){
         totPayroll -= parseInt($(this).val());
       });
       totPayroll = totPayroll.toLocaleString("en-US", localeOpts);
       $('#totalPayroll').text(totPayroll);
 
-      $('.delBox:checked').parent().parent().remove();
+      $('.deleteBox:checked').parent().parent().remove();
     });
 
   });

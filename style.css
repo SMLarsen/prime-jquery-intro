@@ -7,11 +7,18 @@ h1, h2 {
   margin: 10px 0 10px 5%;
 }
 
-table {
-  width: 95%;
-  margin: auto;
-  background-color: white;
+section {
+  width: 96%;
+  margin: 5px auto;
+  padding: 5px;
+  background-color: #B3B9B0;
 }
+
+section:last-of-type {
+padding-bottom: 15px;
+}
+
+/*style form elements*/
 
 form {
   font-size: 1em;
@@ -23,7 +30,7 @@ label{
     width: 150px;
     text-align: right;
 }
-input {
+form input {
   display: inline-block;
   width: 220px;
   font-size: 1em;
@@ -47,7 +54,11 @@ input {
   text-align: right;
   width: 70px;
 }
+
+/*style buttons*/
+
 .inputBtns {
+  margin-top: -1%;
   margin-left: 63%;
 }
 
@@ -68,7 +79,10 @@ input {
 }
 
 .delBtn {
+  display: inline-block;
+  font-size: 1em;
   width: 100px;
+  margin: 0 0 5px 0;
   color: white;
   background-color: #076082;
 }
@@ -80,6 +94,8 @@ input {
   box-shadow: 4px 4px 2px grey;
 }
 
+/*style total payroll section*/
+
 #totalPayroll {
   display: inline-block;
   text-align: right;
@@ -90,11 +106,16 @@ input {
   margin: 5px 5px 5px 10px;
 }
 
-section {
-  width: 96%;
-  margin: 5px auto;
-  padding: 5px;
-  background-color: #B3B9B0;
+/*style table and descendants*/
+
+table {
+  width: 98%;
+  margin: auto;
+  background-color: white;
+}
+
+table th {
+    border-bottom: solid #076082;
 }
 
  tr th #deleteTD {
@@ -103,10 +124,6 @@ section {
 
 tr:nth-child(even) {
   background-color: #B3B9B0;
-}
-
-table th {
-    border-bottom: solid #076082;
 }
 
 .nameTD {
@@ -121,16 +138,16 @@ table th {
 
 .titleTD {
   padding-left: 1%;
-  width: 40%;
-}
-
-.deleteTD {
-  width: 50px;
-  text-align: right;
-  vertical-align: middle;
+  width: 42%;
 }
 
 .salaryTD {
-  width: 8%;
+  width: 10%;
   text-align: right;
+padding-right: 1%;
+}
+.deleteTD {
+  width: 10%;
+  text-align: center;
+  vertical-align: middle;
 }

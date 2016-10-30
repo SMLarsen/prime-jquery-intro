@@ -44,16 +44,16 @@ $(document).ready(function () {
 
   });
 
-  function setTotalPayroll(salary) {
+function setTotalPayroll(salary) {
     totPayroll += parseInt(salary);
     $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
   }
 
-  function appendEmployeeRow(empInfo) {
+function appendEmployeeRow(empInfo) {
 
     var empRow = '<tr class="employee">';
-    empRow += '<td class="nameTD">' + empInfo.employeefirstname + '</td>';
-    empRow += '<td class="nameTD">' + empInfo.employeelastname + '</td>';
+    empRow += '<td class="nameTD">' + empInfo.employeeFirstName + '</td>';
+    empRow += '<td class="nameTD">' + empInfo.employeeLastName + '</td>';
     empRow += '<td class="empIDTD"> ' + empInfo.employeeID + '</td>';
     empRow += '<td class="titleTD">' + empInfo.employeeTitle + '</td>';
     empRow += '<td class="salaryTD">' + parseInt(empInfo.employeeSalary).toLocaleString("en-US", localeOpts) + '</td>';
@@ -62,7 +62,7 @@ $(document).ready(function () {
     $('#employeeTab').append(empRow);
   }
 
-  function fillEmployeeData() {
+function fillEmployeeData() {
     var genEmp = genEmployee();
     var fields = $('#employeeinfo').serializeArray();
 
@@ -74,7 +74,7 @@ $(document).ready(function () {
     $('#employeeinfo').find('#employeeSalary').val(genEmp.salary);
   }
 
-  function deleteCheckedEmployees() {
+function deleteCheckedEmployees() {
     $('.deleteBox:checked').each(function(i){
       totPayroll -= parseInt($(this).val());
     });

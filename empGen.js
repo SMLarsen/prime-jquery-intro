@@ -55,7 +55,7 @@ function genSalary() {
 }
 
 function genEmpNum() {
-  return genRandomIndex(50000, 90000);
+  return genRandomIndex(5000000, 9000000);
 
 }
 

@@ -27,7 +27,7 @@ function genFirstName() {
     'Riley', 'Chloe', 'Scarlett', 'Ellie', 'Elizabeth', 'Aubrey', 'Layla',
     'Grace', 'Zoey', 'Mila', 'Addison', 'Hannah', 'Victoria', 'Brooklyn',
     'Zoe', 'Penelope', 'Lucy', 'Audrey', 'Natalie', 'Nora', 'Stella', 'Skylar'];
-  return firstNames[genRandomIndex(1, firstNames.length)];
+  return firstNames[genRandomIndex(0, firstNames.length - 1)];
 }
 
 function genLastName() {
@@ -47,7 +47,7 @@ function genLastName() {
   'Patterson', 'Hughes', 'Flores', 'Washington', 'Butler', 'Simmons',
   'Foster', 'Gonzales', 'Bryant', 'Alexander', 'Russell', 'Griffin',
   'Diaz', 'Hayes'];
-  return lastNames[genRandomIndex(1, lastNames.length)];
+  return lastNames[genRandomIndex(0, lastNames.length - 1)];
 }
 
 function genSalary() {
@@ -92,5 +92,5 @@ function genTitle() {
   'Technical Support Specialist', 'Technical Specialist',
   'Telecommunications Specialist', 'Web Administrator', 'Web Developer',
   'Webmaster'];
-  return jobTitles[genRandomIndex(1, jobTitles.length)];
+  return jobTitles[genRandomIndex(0, jobTitles.length - 1)];
 }

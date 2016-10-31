@@ -45,7 +45,7 @@ $(document).ready(function () {
   });
 
 function setTotalPayroll(salary) {
-    totPayroll += parseInt(salary);
+    totPayroll += Math.round(parseInt(salary) / 12);
     $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
   }
 
@@ -76,7 +76,7 @@ function fillEmployeeData() {
 
 function deleteCheckedEmployees() {
     $('.deleteBox:checked').each(function(i){
-      totPayroll -= parseInt($(this).val());
+      totPayroll -= Math.round(parseInt($(this).val()) / 12);
     });
     $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
 

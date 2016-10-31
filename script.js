@@ -2,7 +2,7 @@ var localeOpts = {  // contains options for toLocaleString formatting
   style: "currency",
   currency: "USD"
 };
-var totPayroll = 0;
+var monPayroll = 0;
 
 $(document).ready(function () {
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
       $('#employeeinfo').find('input[type=number]').val('');
 
       // set total salary
-      setTotalPayroll(employeeValues.employeeSalary);
+      setmonthlyPayroll(employeeValues.employeeSalary);
 
       // append to employee row to table
       appendEmployeeRow(employeeValues);
@@ -44,9 +44,9 @@ $(document).ready(function () {
 
   });
 
-function setTotalPayroll(salary) {
-    totPayroll += Math.round(parseInt(salary) / 12);
-    $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
+function setmonthlyPayroll(salary) {
+    monPayroll += Math.round(parseInt(salary) / 12);
+    $('#monthlyPayroll').text(monPayroll.toLocaleString("en-US", localeOpts));
   }
 
 function appendEmployeeRow(empInfo) {
@@ -76,9 +76,9 @@ function fillEmployeeData() {
 
 function deleteCheckedEmployees() {
     $('.deleteBox:checked').each(function(i){
-      totPayroll -= Math.round(parseInt($(this).val()) / 12);
+      monPayroll -= Math.round(parseInt($(this).val()) / 12);
     });
-    $('#totalPayroll').text(totPayroll.toLocaleString("en-US", localeOpts));
+    $('#monthlyPayroll').text(monPayroll.toLocaleString("en-US", localeOpts));
 
     $('.deleteBox:checked').parent().parent().remove();
   }
